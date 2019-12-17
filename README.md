@@ -21,3 +21,5 @@ E.g. the cron entry below calls the reset script right before midnight.
 ```
 59 23 * * * /jffs/admin/reset.sh #resetall#
 ```
+
+Please keep in mind that every time you add/remove a new device or change the default schedules and filters, you will have to run `regen.sh` to update the reset script.
