@@ -10,9 +10,13 @@ fi
 echo '#!/bin/sh' > $SCRIPT
 echo "LOG=$LOG" >> $SCRIPT
 echo '# Reset schedules' >> $SCRIPT
+echo nvram set MULTIFILTER_ALL=\'$(nvram get MULTIFILTER_ALL)\' >> $SCRIPT
+echo nvram set MULTIFILTER_DEVICENAME=\'$(nvram get MULTIFILTER_DEVICENAME | sed s/\'/\'\\\\\'\'/g)\' >> $SCRIPT
 echo nvram set MULTIFILTER_ENABLE=\'$(nvram get MULTIFILTER_ENABLE)\' >> $SCRIPT
 echo nvram set MULTIFILTER_MAC=\'$(nvram get MULTIFILTER_MAC)\' >> $SCRIPT
 echo nvram set MULTIFILTER_MACFILTER_DAYTIME=\'$(nvram get MULTIFILTER_MACFILTER_DAYTIME)\' >> $SCRIPT
+echo nvram set MULTIFILTER_URL=\'$(nvram get MULTIFILTER_URL)\' >> $SCRIPT
+echo nvram set MULTIFILTER_URL_ENABLE=\'$(nvram get MULTIFILTER_URL_ENABLE)\' >> $SCRIPT
 echo '# Reset filters' >> $SCRIPT
 echo nvram set wrs_rulelist=\'$(nvram get wrs_rulelist)\' >> $SCRIPT
 echo nvram set wrs_app_rulelist=\'$(nvram get wrs_app_rulelist)\' >> $SCRIPT
