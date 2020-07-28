@@ -20,6 +20,8 @@ echo nvram set MULTIFILTER_URL_ENABLE=\'$(nvram get MULTIFILTER_URL_ENABLE)\' >>
 echo '# Reset filters' >> $SCRIPT
 echo nvram set wrs_rulelist=\'$(nvram get wrs_rulelist)\' >> $SCRIPT
 echo nvram set wrs_app_rulelist=\'$(nvram get wrs_app_rulelist)\' >> $SCRIPT
+echo '# Clear temp variable' >> $SCRIPT
+echo 'nvram unset MULTIFILTER_TMP_T' >> $SCRIPT
 echo '# Commit nvram changes' >> $SCRIPT
 echo 'nvram commit' >> $SCRIPT
 
